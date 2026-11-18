@@ -1,0 +1,1 @@
+{"cat": ["Light_Conditions_label", "Weather_Conditions_label", "Road_Surface_Conditions_label", "Road_Type_label", "Junction_Detail_label", "1st_Road_Class_label", "Urban_or_Rural_Area_label"], "num": ["hour", "Day_of_Week", "Speed_limit", "is_weekend"]}

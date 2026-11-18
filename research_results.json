@@ -1,0 +1,151 @@
+{
+  "dataset": {
+    "records": 59997,
+    "train": 44583,
+    "test": 15414,
+    "base_rate_serious_fatal": 0.13189308420916052,
+    "period": "2018 (train Jan-Sep, test Oct-Dec)"
+  },
+  "hotspots": [
+    {
+      "top_k_cells": 100,
+      "Random baseline": {
+        "capture_pct": 2.024133904242896,
+        "severity_capture_pct": 1.9830165010132201
+      },
+      "Grid (count)": {
+        "capture_pct": 19.2422473076424,
+        "severity_capture_pct": 18.030493100453537
+      },
+      "Grid (severity-weighted)": {
+        "capture_pct": 19.170883612300507,
+        "severity_capture_pct": 18.05944224645373
+      },
+      "KDE (smoothed severity)": {
+        "capture_pct": 17.92526274815103,
+        "severity_capture_pct": 16.98832384444659
+      },
+      "DBSCAN clusters": {
+        "capture_pct": 4.178019981834695,
+        "severity_capture_pct": 4.120428447360803
+      }
+    },
+    {
+      "top_k_cells": 300,
+      "Random baseline": {
+        "capture_pct": 6.130790190735695,
+        "severity_capture_pct": 5.915275499372768
+      },
+      "Grid (count)": {
+        "capture_pct": 32.95056442195406,
+        "severity_capture_pct": 30.801891344205345
+      },
+      "Grid (severity-weighted)": {
+        "capture_pct": 32.42506811989101,
+        "severity_capture_pct": 30.628196468204187
+      },
+      "KDE (smoothed severity)": {
+        "capture_pct": 31.432463993771897,
+        "severity_capture_pct": 29.537778635530255
+      },
+      "DBSCAN clusters": {
+        "capture_pct": 11.684183210068769,
+        "severity_capture_pct": 11.77747756441185
+      }
+    },
+    {
+      "top_k_cells": 500,
+      "Random baseline": {
+        "capture_pct": 14.110548851693267,
+        "severity_capture_pct": 13.914889510759432
+      },
+      "Grid (count)": {
+        "capture_pct": 42.99987024782665,
+        "severity_capture_pct": 40.8954935829393
+      },
+      "Grid (severity-weighted)": {
+        "capture_pct": 41.248215907616455,
+        "severity_capture_pct": 39.75682717359838
+      },
+      "KDE (smoothed severity)": {
+        "capture_pct": 41.19631503827689,
+        "severity_capture_pct": 39.19714368426131
+      },
+      "DBSCAN clusters": {
+        "capture_pct": 18.269106007525625,
+        "severity_capture_pct": 18.05461738878703
+      }
+    }
+  ],
+  "models": {
+    "Majority baseline": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.13189308420916052,
+      "best_f1": 0.23304866166103055,
+      "precision_at_best": 0.13189308420916052,
+      "recall_at_best": 1.0
+    },
+    "Logistic regression": {
+      "roc_auc": 0.587858495646877,
+      "pr_auc": 0.17398817944550496,
+      "best_f1": 0.2592206709731194,
+      "precision_at_best": 0.1644415069398546,
+      "recall_at_best": 0.6119035907525824
+    },
+    "Random forest": {
+      "roc_auc": 0.5852017858095333,
+      "pr_auc": 0.18053192306833718,
+      "best_f1": 0.25353159851301116,
+      "precision_at_best": 0.169455027331456,
+      "recall_at_best": 0.5031972454500738
+    },
+    "Gradient boosting": {
+      "roc_auc": 0.5863637839044158,
+      "pr_auc": 0.18296965901315557,
+      "best_f1": 0.2549289316827144,
+      "precision_at_best": 0.16619339411149306,
+      "recall_at_best": 0.5469749139203148
+    }
+  },
+  "best_model": "Logistic regression",
+  "ablation": [
+    {
+      "removed": "Weather & surface",
+      "roc_auc": 0.586628142560538,
+      "delta": -0.0012303530863390089
+    },
+    {
+      "removed": "Time (hour, day, weekend)",
+      "roc_auc": 0.5638476423666847,
+      "delta": -0.024010853280192257
+    },
+    {
+      "removed": "Road type & junction",
+      "roc_auc": 0.5540590936345016,
+      "delta": -0.03379940201237541
+    },
+    {
+      "removed": "Speed limit",
+      "roc_auc": 0.5866454932225263,
+      "delta": -0.0012130024243506288
+    },
+    {
+      "removed": "Urban/rural",
+      "roc_auc": 0.5891689485054041,
+      "delta": 0.0013104528585271558
+    }
+  ],
+  "importance": {
+    "Junction_Detail_label": 0.05373582598439073,
+    "Light_Conditions_label": 0.02541349186110966,
+    "1st_Road_Class_label": 0.011537872694030282,
+    "Weather_Conditions_label": 0.0068474636179344465,
+    "is_weekend": 0.004220747893773513,
+    "Road_Surface_Conditions_label": 0.0036809119810490955,
+    "Speed_limit": 0.0009446882331917372,
+    "hour": 0.0009106223521408108,
+    "Road_Type_label": 0.0007442804271822201,
+    "Urban_or_Rural_Area_label": -0.00015014586301380638,
+    "Day_of_Week": -0.00040723988583009075
+  }
+}

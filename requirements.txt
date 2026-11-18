@@ -1,0 +1,11 @@
+altair
+folium
+joblib
+numpy
+pandas
+requests
+scikit-learn
+scipy
+shap
+streamlit
+streamlit-folium
